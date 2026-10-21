@@ -95,7 +95,7 @@ col3.metric(
 
 st.divider()
 
-# 8. 관객수 상위 5편 막대그래프
+# 8. 관객수 상위 5편 막대그래프 (문법 오류 수정 완료)
 st.subheader("📊 관객수 TOP 5")
 top_5_df = df.head(5).copy()
 
@@ -103,7 +103,7 @@ chart = (
     alt.Chart(top_5_df)
     .mark_bar(cornerRadiusTopRight=5, cornerRadiusBottomRight=5)
     .encode(
-        x=alt.X("audiCnt:Q", title="일일 관객수(명)", axis=alt.Axis(format=","Automated)),
+        x=alt.X("audiCnt:Q", title="일일 관객수(명)", axis=alt.Axis(format=",")),
         y=alt.Y("movieNm:N", title="영화명", sort="-x"),
         tooltip=[
             alt.Tooltip("movieNm:N", title="영화명"),
@@ -117,7 +117,7 @@ st.altair_chart(chart, use_container_width=True)
 
 st.divider()
 
-# 9. 전체 박스오피스 테이블 표시
+# 9. 전체 박스오피스 순위표 표시
 st.subheader("📋 전체 박스오피스 순위표")
 
 display_columns = {
